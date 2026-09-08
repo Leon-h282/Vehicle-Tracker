@@ -58,7 +58,7 @@ frame_time = 1.0/fps
 
 # Khoanh vùng trên màn hình
 def get_src_points(frame: np.ndarray) -> np.float32:
-    h, w, _ = frame.shape
+    h, w = frame.shape[:2]
     
     return np.float32([
         [  450,   300],  # Trên-trái
