@@ -69,8 +69,8 @@ def get_src_points(frame: np.ndarray) -> np.float32:
 
 
 # Kích thước làn đường trên thực tế (đv: mét)
-REAL_WIDTH  = 24    # Chiều rộng làn đường
-REAL_HEIGHT = 40    # Chiều dài đoạn đường được khoanh vùng
+REAL_WIDTH  = 32    # Chiều rộng làn đường
+REAL_HEIGHT = 80    # Chiều dài đoạn đường được khoanh vùng
 
 # Phóng các điểm lên màn hình
 dst_point = np.float32([
@@ -92,23 +92,22 @@ def pixel_to_meters(point: np.ndarray, M: np.ndarray) -> np.ndarray:
 
 # Vẽ đường khoanh vùng
 def draw_track_area(src_points: np.ndarray) -> None:
-    # Chấm 4 góc
-    for point in src_points:
-        point = tuple(map(int, point))
+    overlay = frame.copy()
+    alpha = 0.2
 
-        cv2.circle(
-            frame,
-            point,
-            2, COL_GREEN, -1
-        )
+    # Tô màu vùng theo dõi
+    cv2.fillPoly(
+        overlay, [src_points.astype(np.int32)], COL_GREEN
+    )
 
-    # Đường biên khoanh vùng
-    cv2.polylines(
+    # Chồng lớp overlay để tạo hiệu ứng transparent
+    cv2.addWeighted(
+        overlay,
+        alpha,
         frame,
-        [src_points.astype(np.int32).reshape((-1, 1, 2))],
-        isClosed=True,
-        color=COL_GREEN,
-        thickness=1)
+        1 - alpha,
+        0, frame
+    )
 
 
 while cap.isOpened():
