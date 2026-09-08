@@ -3,6 +3,8 @@
 ## Description
 Vehicle Tracker is a machine learning project using YOLOv8n model to detect and track moving vehicles in the given video and calculate their speed.
 
+<img width="426" height="240" alt="VehicleTracker-TestVideo" src="https://github.com/user-attachments/assets/1925581a-1fc4-4236-914c-a39acc42c087" />
+
 ## Requirements
 
 `python 3.10`
