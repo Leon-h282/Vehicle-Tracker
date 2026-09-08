@@ -1,7 +1,7 @@
 # VEHICLE TRACKER
 
 ## Description
-Vehicle Tracker is a machine learning project using YOLOv8n model to detect and track moving vehicles in a given video and calculate their speed.
+Vehicle Tracker is a machine learning project using YOLOv8n model to detect and track moving vehicles in the given video and calculate their speed.
 
 ## Requirements
 
