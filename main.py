@@ -117,7 +117,6 @@ while cap.isOpened():
         break
 
     src_points = get_src_points(frame)
-    draw_track_area(src_points)
 
     # Ma trận chuyển đổi perspective
     M = cv2.getPerspectiveTransform(src_points, dst_point)
@@ -129,6 +128,8 @@ while cap.isOpened():
         classes=VEHICLE_CLASSES,
         verbose=False
     )
+
+    draw_track_area(src_points)
 
     if result[0].boxes and result[0].boxes.id is not None:
         # Tọa độ 4 góc bounding box
