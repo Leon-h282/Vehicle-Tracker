@@ -1,4 +1,4 @@
-# VEHICLE TRACKER
+# [PYTHON] VEHICLE TRACKER
 
 ## Description
 Vehicle Tracker is a machine learning project using `YOLOv8n` model of **Ultralytics** to **detect and track** moving vehicles in the given video and calculate their **speed**.
